@@ -1,0 +1,330 @@
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>PaperDisc! - Nuclear Warfare</title>
+<style>
+:root {
+  --bg: #ffffff;
+  --pg: #ffffff;
+  --tx: #000000;
+  --lk: #0000cc;
+  --vl: #660099;
+  --bd: #aaaaaa;
+  --hl: #f5f5f5;
+  --hd: #000000;
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-padding-top: env(safe-area-inset-top, 0px);
+}
+
+body {
+  margin: 0;
+  padding: 14px 8px;
+  background: #ffffff;
+  color: var(--tx);
+  font: 16px/1.45 "Times New Roman", Times, serif;
+}
+
+#p {
+  max-width: 760px;
+  margin: 0 auto;
+  background: #ffffff;
+  border: 1px solid var(--bd);
+  padding: 14px 22px 20px;
+}
+
+h1 {
+  font: bold 30px Georgia, "Times New Roman", serif;
+  color: var(--hd);
+  margin: 4px 0 2px;
+}
+
+h2 {
+  font: bold 30px Georgia, "Times New Roman", serif;
+  color: var(--hd);
+  border-bottom: 1px solid var(--bd);
+  margin: 26px 0 8px;
+  padding-bottom: 2px;
+}
+
+p {
+  margin: 0 0 10px;
+}
+
+a {
+  color: var(--lk);
+}
+
+a:visited {
+  color: var(--vl);
+}
+
+.sub {
+  font-style: italic;
+  margin: 0 0 12px;
+}
+
+table {
+  border-collapse: collapse;
+  margin: 8px 0 12px;
+  background: #ffffff;
+}
+
+th, td {
+  border: 1px solid var(--bd);
+  padding: 3px 8px;
+  text-align: left;
+  font-size: 15px;
+  vertical-align: top;
+}
+
+th {
+  background: #eeeeee;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 14px;
+}
+
+.w {
+  overflow-x: auto;
+}
+
+.side {
+  float: right;
+  width: 210px;
+  margin: 0 0 10px 18px;
+  text-align: center;
+  font-size: 13px;
+}
+
+.side canvas {
+  width: 100%;
+  display: block;
+  border: 1px solid var(--bd);
+  background: #ffffff;
+}
+
+.nov {
+  background: #f5f5f5;
+  border: 1px solid var(--bd);
+  padding: 6px 10px;
+  font-size: 15px;
+}
+
+.nov p {
+  margin: 0 0 4px;
+}
+
+.calc {
+  border: 1px solid var(--bd);
+  padding: 8px 10px;
+  background: #f7f7f7;
+}
+
+.calc div {
+  margin: 4px 0;
+}
+
+.calc select, .calc input {
+  font: 15px Arial, sans-serif;
+}
+
+.calc input[type=number] {
+  width: 90px;
+}
+
+button {
+  font: 14px Arial, sans-serif;
+  padding: 2px 12px;
+  background: #eeeeee;
+  color: #000000;
+  border: 1px solid #999999;
+  cursor: pointer;
+}
+
+button:hover {
+  background: #dddddd;
+}
+
+#r {
+  margin-top: 6px;
+  font-weight: bold;
+}
+
+.f {
+  font-size: 13px;
+  border-top: 1px solid var(--bd);
+  margin-top: 26px;
+  padding-top: 8px;
+  text-align: center;
+}
+
+.cnt {
+  font-family: "Courier New", monospace;
+  background: #eeeeee;
+  color: #000000;
+  padding: 1px 6px;
+  letter-spacing: 2px;
+}
+
+.menu {
+  font-size: 15px;
+  margin: 6px 0 4px;
+}
+
+:focus-visible {
+  outline: 2px solid var(--lk);
+  outline-offset: 2px;
+}
+
+@media(max-width:600px) {
+  .side {
+    float: none;
+    margin: 0 auto 12px;
+  }
+}
+</style>
+</head>
+<body>
+<div id="p">
+
+  <h1><img class="logo" id="logo" alt="PaperDisc" width="460" height="90" src="https://i.postimg.cc/htmhykqn/Paper-Disc-logo.png' width='460' height='90' viewBox='0 0 460 90'><rect width='460' height='90' fill='%23e8e8dc'/><rect x='3' y='3' width='454' height='84' fill='none' stroke='%23111111' stroke-width='2' stroke-dasharray='8 6'/><text x='230' y='42' font-family='Arial,sans-serif' font-size='24' font-weight='bold' text-anchor='center' fill='%23111111'>merda de cavalo</text><text x='230' y='66' font-family='Arial,sans-serif' font-size='14' text-anchor='middle' fill='%23555555'>logo do PaperDisc - 460 x 90 px</text></svg>"></h1>
+<p class="sub">Um programa para guardar arquivos em folhas de papel</p>
+
+<p class="menu">
+[ <a href="#oque">O que é</a> ]
+[ <a href="#cap">Quanto cabe</a> ]
+[ <a href="#uso">Como usar</a> ]
+[ <a href="#nao">O que evitar</a> ]
+[ <a href="#limites">Limites</a> ]
+[ <a href="#curio">Download</a> ]
+</p>
+
+<div class="side">
+<canvas id="pg" width="310" height="438"></canvas>
+Uma página (desenhei aqui só para ilustrar, os quadradinhos são aleatórios)
+</div>
+
+<h2 id="oque">O que é</h2>
+<p>Eu fiz o PaperDisc pensando: "Se houver um apocalipse, como as pessoas desse mundo guardariam arquivos e enviariam entre computadores muito distantes? Tão distantes que seria muito difícil esticar um cabo até lá e não haveria internet para enviar os dados. E como guardariam os arquivos quando a maioria dos discos rígidos pararem de funcionar?" Minha resposta foi papel. Um HDD ou SSD tem eletrônica que costuma quebrar em poucos anos. Uma folha impressa bem guardada pode durar muito mais, não precisa de energia e um pulso eletromagnético não mexe nela.</p>
+<p>O programa pega um arquivo qualquer (um ZIP com livros, manuais, mapas, o que for) e desenha ele em páginas A4 cheias de quadrados em tons de cinza (menos que 50 tons de cinza hehehe, mas já é útil). Depois é só escanear as folhas e rodar o programa de novo, e o arquivo volta igual ao original. Ele confere isso com um CRC32 (um algoritmo de detecção de erros usado para identificar corrupção ou alterações acidentais em dados, arquivos e transmissões de rede) no final.</p>
+<p>Algumas coisas que coloquei para ele aguentar o mundo real: correção de erros (Reed-Solomon, a mesma ideia dos CDs e dos QR codes), uma calibração de preto e branco em cada linha (para se o papel ficar amarelo com o tempo) e uma faixa de calibração em cada página, quatro quadrados nos cantos para o programa se achar mesmo com o scanner torto, e o cabeçalho de cada folha repetido em cima e embaixo. Cada página sabe o próprio número e a qual arquivo pertence, então pode escanear fora de ordem.</p>
+
+<h2 id="cap">Quanto cabe</h2>
+<p>Depende de três ajustes: tamanho do pixel, tons de cinza e força da correção. Por folha A4, impressa de um lado só:</p>
+<div class="w"><table>
+<tr><th>Configuração</th><th>Útil por folha</th><th>Precisa de</th></tr>
+<tr><td>Padrão: pixel 4, 32 tons, correção forte</td><td>Cerca de 47 KB</td><td>Scanner a 300 dpi ou mais</td></tr>
+<tr><td>Segura: pixel 4, 16 tons, forte</td><td>Cerca de 38 KB</td><td>Impressora comum de casa</td></tr>
+<tr><td>Robusta: pixel 4, 2 tons, forte</td><td>Cerca de 10 KB</td><td>Quase qualquer coisa</td></tr>
+<tr><td>Máxima: pixel 3, 32 tons, forte</td><td>Cerca de 86 KB</td><td>Scanner a 600 dpi, impressora boa</td></tr>
+</table></div>
+
+<p>Agora a conta que eu mais queria mostrar: quanto dá para levar numa bolsa de escola ou trilha e num carrinho de supermercado. Contei a bolsa como umas 2 resmas (1.000 folhas, uns 5 kg) e o carrinho como 40 resmas (20.000 folhas, uns 100 kg). Afinal, para percorrer longas distâncias levando papel, é sempre bom uma bolsa ou até um carrinho de supermercado como em "A Estrada" (filme de 2009).</p>
+<div class="w"><table>
+<tr><th>Coisa</th><th>Bolsa (padrão / máxima)</th><th>Carrinho (padrão / máxima)</th></tr>
+<tr><td>Total</td><td>46 MB / 84 MB</td><td>0,9 GB / 1,6 GB</td></tr>
+<tr><td>Programas de computador (uns 4 MB cada)</td><td>11 / 21</td><td>225 / 400</td></tr>
+<tr><td>Músicas em MP3 128k (uns 4 MB cada)</td><td>11 / 21</td><td>225 / 400</td></tr>
+<tr><td>Músicas em Opus 32k (uns 1 MB)</td><td>46 / 84</td><td>900 / 1.600</td></tr>
+<tr><td>Livros em texto puro (uns 0,5 MB)</td><td>90 / 170</td><td>1.800 / 3.200</td></tr>
+<tr><td>Livros num ZIP (uns 0,2 MB)</td><td>230 / 420</td><td>4.500 / 8.000</td></tr>
+<tr><td>Fotos pequenas (uns 100 KB)</td><td>460 / 840</td><td>9.000 / 16.000</td></tr>
+</table></div>
+<p>Dá para ver que música gasta muito e texto gasta quase nada. O carrinho carrega uma biblioteca inteira de manuais, e também um acervo de muitas músicas.</p>
+
+<div class="calc">
+<b>Calculadora</b>
+<div>Configuração: <select id="cfg"><option value="47.5">Padrão (47 KB)</option><option value="38">Segura (38 KB)</option><option value="9.7">Robusta (10 KB)</option><option value="85.8">Máxima (86 KB)</option></select></div>
+<div>Folhas: <input id="n" type="number" min="1" max="65535" value="1000"></div>
+<div>Medir em: <select id="item"><option value="4">Músicas MP3</option>
+  <option value="4">Programas</option><option value="1">Músicas Opus</option><option value="0.5">Livros em texto</option><option value="0.2">Livros em ZIP</option><option value="0.1">Fotos pequenas</option></select></div>
+<div><button type="button" id="b">Calcular</button></div>
+<div id="r"></div>
+</div>
+
+<h2 id="uso">Como usar</h2>
+<p>1. Junte o que você quer guardar num ZIP só. (Ou sem ZIP, já que esse arquivo só é nativo do Windows 10 para frente; antes precisava de programas de terceiros.)</p>
+<p>2. Abra o programa e escolha pixel, tons e correção. Se estiver em dúvida, pixel 4, 16 tons e correção forte.</p>
+<p>3. Clique em "Codificar Arquivo". As páginas JPEG saem em Downloads\converted_files. Tem uma caixinha para gerar também o código-fonte em páginas legíveis, e eu recomendo fortemente marcar, pois assim você tem uma cópia do PaperDisc que você pode copiar nativamente no PowerShell e, mesmo sem o PaperDisc pré-instalado, consegue usar ele em outro computador.</p>
+<p>4. Imprima a 100%. Não deixe a impressora "ajustar à página". De preferência em papel branco e fosco, e laser.</p>
+<p>5. Para recuperar, escaneie cada folha inteira, com os quatro quadrados pretos dos cantos aparecendo, a 300 dpi ou mais (600 dpi se usou pixel 3 com 32 tons).</p>
+<p>6. Clique em "Decodificar" e selecione todas as imagens. Não precisa dizer nada ao programa, tudo está gravado nas páginas. O arquivo aparece em Downloads\restored_files.</p>
+
+<h2 id="nao">O que evitar</h2>
+<p>Imprimir reduzido ou ampliado. A grade de pixels perde o encaixe e nada é lido.</p>
+<p>Grampear, furar ou dobrar em cima da área de dados, e escrever na folha na área dos dados.</p>
+<p>Papel brilhoso, de foto ou ácido ruim. O ácido amarela e esfarela com os anos.</p>
+<p>Jato de tinta comum, se a ideia é guardar por décadas. A tinta com corante desbota e borra com umidade. Toner de laser é bem mais estável.</p>
+<p>Cortar a folha na hora de escanear. Os quatro cantos precisam aparecer.</p>
+<p>Perder a página 1. Ela guarda o nome e o tamanho do arquivo, o programa não monta sem ela (a menos que você aceite um arquivo com buracos).</p>
+<p>Usar tons demais para guardar a longo prazo. 32 tons rendem mais por folha, mas é onde o envelhecimento do papel e da tinta machuca primeiro. Para arquivar de verdade, use menos tons.</p>
+<p>Guardar uma cópia só. Faça pelo menos duas e deixe em lugares diferentes, se for algo muito importante mesmo.</p>
+<p>Grande parte dessas dicas não são obrigatórias. Não deixe de gravar porque você não tem o papel certo ou a impressora certa, pois sempre esperamos pelo momento certo e esse momento quase nunca chega. Então não espere o momento certo, faça com a força da sua teimosia e otimismo o seu momento certo!</p>
+<p>(Isso vale pra quase tudo da vida, tá com medo de falar com aquela garota? Fale com ela, pois o não você já tem, o que você tem que correr atrás é o sim.)</p>
+<p>(Minha prima me disse isso nas férias, nunca mais esqueço. Valeu, Lilith!)</p>
+
+<p>Como guardar do melhor jeito: papel livre de ácido, lugar seco e escuro, pacotes lacrados com sílica gel, longe de água e fogo. Numere os pacotes e anote o código do conjunto (aparece no topo de cada folha) de cada arquivo.</p>
+
+<h2 id="limites">Limites</h2>
+<p>Para ler os dados você ainda precisa de um computador com Windows, um scanner (ou uma boa câmera) e energia elétrica (é óbvio, pois ainda não acharam jeito de ligar computador com o poder da amizade). O papel aguenta o apocalipse, mas o leitor precisa existir. Por isso eu coloquei a opção de imprimir o código-fonte: com ele dá para reconstruir o programa em outra máquina (só escrever o código no PowerShell, que tem em todo Windows desde o 7).</p>
+<p>Também não testei nada por décadas, óbvio. Dizer que papel dura séculos vale para papel e toner bons, guardados direito. Para imagens em tons de cinza, o desbotamento é o maior risco, e só teste de envelhecimento de verdade vai dizer quanto tempo cada configuração aguenta.</p>
+<p>E a densidade é baixa, uns 0,05 MB por folha. Serve para o essencial, não para arquivo muito grande (tipo o jogo Concord, que acho que esse ser esquecido após um inverno nuclear não é nem tão ruim. O jogo, porque se falarmos do avião Concord, esse merece ser eternizado assim como o A-10 Warthog).</p>
+
+<h2 id="curio">Curiosidades</h2>
+<p>Os tons de cinza são gravados em código de Gray, em que tons vizinhos diferem em um único bit. Se o scanner confundir um tom com o do lado, só um bit erra.</p>
+<p>Antes de imprimir, os bytes são embaralhados com uma sequência pseudoaleatória, para a folha não ter manchas enormes de preto ou branco.</p>
+<p>Os bytes de cada bloco de correção ficam espalhados pela folha. Se uma mancha ou dobra pegar um pedaço, ela atinge um pouquinho de vários blocos e não um bloco inteiro.</p>
+<p>No modo forte cada bloco de 255 bytes aceita até 32 bytes errados e mesmo assim volta normal.</p>
+<p>A página é uma imagem de 1240 por 1754 pixels, que é o A4 a 150 dpi. Cada "pixel" de dados ocupa de 3 a 8 pixels dessa imagem.</p>
+
+<h2>Download</h2>
+<div class="nov">
+
+<p>O download do paperdisc está temporariamente fora, mas se tiver interesse no projeto meu contato: +55 83 98172-8822 (não atendo chamada, só mensagem no whatsapp)</p>
+
+<p>Versão 2.1 do programa: formato novo, não lê as folhas da 1.</p>
+</div>
+
+<div class="f">
+Feito por Erick, o Andarilho. Quero um dia ficar famoso!<br>
+Esta página, assim como o Übermensch de Nietzsche, está sempre em construção (Selbstüberwindung!).
+</div>
+
+  <h2 style="text-align: center;">Número de visitas</h2>
+  <!-- Inicia código Contador -->
+<div align="center"><a title='Contador de Visitas do MegaContador' href='https://megacontador.com.br/' ><img src='https://megacontador.com.br/img-dZ110sfHZrapGtNI-23.gif' border='0' alt='Contador de visitas'></a></div>
+<!-- Fim do código Contador -->
+
+</div>
+<script>
+(function(){
+var c=document.getElementById('pg'),x=c.getContext('2d'),W=c.width,H=c.height;
+x.fillStyle='#fff';x.fillRect(0,0,W,H);x.fillStyle='#000';
+[[15,15],[W-25,15],[15,H-25],[W-25,H-25]].forEach(function(p){x.fillRect(p[0],p[1],10,10)});
+var s=12345;function r(){s=(s*1664525+1013904223)>>>0;return s>>>16}
+var ps=4,top=44,cols=Math.floor((W-16)/ps),rows=Math.floor((H-top-34)/ps);
+for(var j=0;j<rows;j++)for(var i=0;i<cols;i++){var g=(i<2||i>=cols-2)?(i%2?255:0):Math.round((r()%32)/31*255);
+x.fillStyle='rgb('+g+','+g+','+g+')';x.fillRect(8+i*ps,top+j*ps,ps,ps)}
+x.fillStyle='#000';x.font='bold 9px monospace';x.fillText('PAPERDISC 2.1  PAGINA 1 de 1000',34,22);
+x.font='7px monospace';x.fillText('ARQUIVO: biblioteca.zip',34,33);
+})();
+(function(){
+var a=document.getElementById('cfg'),n=document.getElementById('n'),it=document.getElementById('item'),o=document.getElementById('r');
+function f(v){return v.toLocaleString('pt-BR',{maximumFractionDigits:1})}
+function u(){var p=Math.max(1,Math.min(65535,parseInt(n.value)||1)),mb=p*parseFloat(a.value)/1024;
+o.textContent=f(p)+' folhas dão uns '+f(mb)+' MB (papel: uns '+f(p*0.0047)+' kg). Cabem cerca de '+f(Math.floor(mb/parseFloat(it.value)))+' itens.'}
+document.getElementById('b').addEventListener('click',u);u();
+var v=1337;try{v=(parseInt(localStorage.getItem('pdv'))||1336)+1;localStorage.setItem('pdv',v)}catch(e){}
+document.getElementById('cnt').textContent=('000000'+v).slice(-6);
+})();
+</script>
+</body>
+</html>
